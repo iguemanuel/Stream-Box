@@ -8,10 +8,21 @@ defineProps<{
 </script>
 
 <template>
-  <div class="card">
-    <h3>{{ title }}</h3>
-    <img :src="`https://image.tmdb.org/t/p/w500/${posterPath}`" alt="Capa do Filme" />
-    <p>{{ overview || 'Sem descrição disponível.' }}</p>
+  <div
+    class="max-w-sm rounded overflow-hidden shadow-lg bg-gray-900 rounded-lg"
+    style="padding: 1rem; margin: 1rem"
+  >
+    <img
+      class="w-full"
+      :src="`https://image.tmdb.org/t/p/w500/${posterPath}`"
+      alt="Capa do filme"
+    />
+    <div class="px-6 py-4">
+      <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
+      <p class="text-gray-300 text-base">
+        {{ overview || 'Sem descrição disponível.' }}
+      </p>
+    </div>
   </div>
 </template>
 

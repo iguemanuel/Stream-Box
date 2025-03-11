@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Inter:700|Inter:400');
+@import 'tailwindcss';
 
 * {
   margin: 0;

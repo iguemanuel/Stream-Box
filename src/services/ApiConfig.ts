@@ -5,7 +5,7 @@ const api = axios.create({
 })
 
 const endPoints = {
-  series: '3/tv/changes',
+  series: '3/discover/tv',
   movies: '3/discover/movie',
 }
 

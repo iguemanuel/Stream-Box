@@ -3,9 +3,18 @@ import { ref, onMounted } from 'vue'
 import { api, endPoints, apiKey } from '@/services/ApiConfig.ts'
 import MovieCardComponent from '@/components/MovieCardComponent.vue'
 
-const movies = ref([])
+interface Movie {
+  id: number
+  title: string
+  name?: string
+  poster_path: string
+  overview: string
+}
+
+const movies = ref<Movie[]>([])
 
 const getMovies = async () => {
+  console.log('Oii')
   try {
     const response = await api.get(endPoints.movies, {
       params: {
@@ -29,7 +38,7 @@ onMounted(() => {
 <template>
   <div>
     <h1>Filmes Populares</h1>
-    <div class="movies-container">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 m-8">
       <MovieCardComponent
         v-for="movie in movies"
         :key="movie.id"
@@ -42,10 +51,4 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped>
-.movies-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-</style>
+<style scoped></style>
