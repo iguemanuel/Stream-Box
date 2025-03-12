@@ -2,19 +2,20 @@
 import { ref, onMounted } from 'vue'
 import { api, endPoints, apiKey } from '@/services/ApiConfig.ts'
 import MovieCardComponent from '@/components/MovieCardComponent.vue'
+import { useRatingStore } from '@/stores/ratingStore.ts'
 
 interface Movie {
   id: number
   title: string
   name?: string
   poster_path: string
-  overview: string
+  vote_average: number
 }
 
+const ratingStore = useRatingStore()
 const movies = ref<Movie[]>([])
 
 const getMovies = async () => {
-  console.log('Oii')
   try {
     const response = await api.get(endPoints.movies, {
       params: {
@@ -25,6 +26,11 @@ const getMovies = async () => {
 
     console.log('Filmes:', response.data.results)
     movies.value = response.data.results || []
+
+    // Definir a média dos ratings no Pinia
+    const averageRating =
+      movies.value.reduce((sum, movie) => sum + movie.vote_average, 0) / movies.value.length || 0
+    ratingStore.setRating(averageRating)
   } catch (error) {
     console.error('Erro ao buscar filmes:', error)
   }
@@ -34,10 +40,11 @@ onMounted(() => {
   getMovies()
 })
 </script>
-
 <template>
   <div>
-    <h1>Filmes Populares</h1>
+    <div class="flex items-center justify-center">
+      <h2>Filmes Populares</h2>
+    </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 m-8">
       <MovieCardComponent
         v-for="movie in movies"
@@ -45,10 +52,9 @@ onMounted(() => {
         :id="movie.id"
         :title="movie.title || movie.name || 'Sem Nome'"
         :posterPath="movie.poster_path || ''"
-        :overview="movie.overview"
+        :vote_average="movie.vote_average"
+        :rating="movie.vote_average"
       />
     </div>
   </div>
 </template>
-
-<style scoped></style>
