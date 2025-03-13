@@ -1,19 +1,14 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { api, endPoints, apiKey } from '@/services/ApiConfig.ts'
-import MovieCardComponent from '@/components/MovieCardComponent.vue'
+import MovieCardComponent from '@/components/CardComponent.vue'
 import { useRatingStore } from '@/stores/ratingStore.ts'
+import MovieModel from '@/model/Movie'
 
-interface Movie {
-  id: number
-  title: string
-  name?: string
-  poster_path: string
-  vote_average: number
-}
+const movie = MovieModel
 
 const ratingStore = useRatingStore()
-const movies = ref<Movie[]>([])
+const movies = ref<MovieModel[]>([])
 
 const getMovies = async () => {
   try {

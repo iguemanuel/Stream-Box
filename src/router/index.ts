@@ -1,5 +1,6 @@
 import HomeView from '@/views/HomeView.vue'
-import PopularMoviesView from '@/views/PopularMoviesView.vue'
+import ReleasesView from '@/views/ReleasesView.vue'
+import SeriesView from '@/views/SeriesView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -11,9 +12,12 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/popular',
-      name: 'popular',
-      component: PopularMoviesView,
+      path: '/releases',
+      component: ReleasesView,
+    },
+    {
+      path: '/series',
+      component: SeriesView,
     },
   ],
 })

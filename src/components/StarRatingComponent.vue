@@ -1,17 +1,3 @@
-<template>
-  <div>
-    <box-icon
-      v-for="i in fullStars"
-      :key="'full-' + i"
-      type="solid"
-      name="star"
-      color="gold"
-    ></box-icon>
-
-    <box-icon v-for="i in emptyStars" :key="'empty-' + i" name="star" color="gray"></box-icon>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { defineProps } from 'vue'
 
@@ -32,3 +18,16 @@ for (let i = 0; i < 5; i++) {
   }
 }
 </script>
+<template>
+  <div>
+    <box-icon
+      v-for="i in fullStars"
+      :key="'full-' + i"
+      type="solid"
+      name="star"
+      color="gold"
+    ></box-icon>
+
+    <box-icon v-for="i in emptyStars" :key="'empty-' + i" name="star" color="gray"></box-icon>
+  </div>
+</template>

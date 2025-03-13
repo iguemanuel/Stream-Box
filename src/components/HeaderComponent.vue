@@ -1,3 +1,4 @@
+<script setup lang="ts"></script>
 <template>
   <nav class="navbar flex justify-between items-center">
     <div>
@@ -5,13 +6,12 @@
     </div>
     <ul class="nav-links">
       <li><a href="#">Filmes</a></li>
-      <li><a href="#">Series</a></li>
-      <li><a href="#">Lançamentos</a></li>
+      <li><RouterLink to="series">Series</RouterLink></li>
+      <li><RouterLink to="releases">Lançamentos</RouterLink></li>
     </ul>
     <div class="profile"></div>
   </nav>
 </template>
-<script setup lang="ts"></script>
 <style>
 .navbar {
   background-color: var(--secondary-color);
