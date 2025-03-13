@@ -27,9 +27,6 @@ onMounted(() => {
 
 <template>
   <div>
-    <div class="flex items-center justify-center">
-      <h2>Séries Populares</h2>
-    </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 m-8">
       <CardComponent
         v-for="serie in series"
@@ -39,6 +36,7 @@ onMounted(() => {
         :posterPath="serie.backdropPath"
         :vote_average="serie.voteAverage"
         :rating="serie.voteAverage"
+        :overview="serie.overview"
       />
     </div>
   </div>

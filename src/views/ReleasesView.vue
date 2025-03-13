@@ -37,9 +37,6 @@ onMounted(() => {
 </script>
 <template>
   <div>
-    <div class="flex items-center justify-center">
-      <h2>Filmes Populares</h2>
-    </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 m-8">
       <MovieCardComponent
         v-for="movie in movies"
@@ -49,6 +46,7 @@ onMounted(() => {
         :posterPath="movie.poster_path || ''"
         :vote_average="movie.vote_average"
         :rating="movie.vote_average"
+        :overview="movie.overview || 'Descrição indisponível'"
       />
     </div>
   </div>

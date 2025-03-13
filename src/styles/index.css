@@ -9,18 +9,22 @@
 
 :root {
   --background: #131209;
-  --text-color: #f0f0dd;
 
-  --primary-color: #d4d1a0;
-  --secondary-color: #357078;
-  --tertiary-color: #5262b2;
+  --text-color: #f5f1ec;
+
+  --primary-color: #e1bd92;
+  --secondary-color: #965e1a;
+  --tertiary-color: #df470a;
+
+  --font-family: 'Inter', sans-serif;
 }
 
 body {
   font-family: 'Inter';
   font-weight: 400;
-  background: var(--background);
   color: var(--text-color);
+  background: rgb(113, 61, 0);
+  background: radial-gradient(circle, rgba(113, 61, 0, 1) 0%, rgba(101, 0, 0, 1) 100%);
 }
 
 h1,
