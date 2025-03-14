@@ -6,7 +6,7 @@
       <h1>🎬 Stream View</h1>
     </div>
     <ul class="nav-links">
-      <li><RouterLink to="/">Filmes</RouterLink></li>
+      <li><RouterLink to="/">Home</RouterLink></li>
       <li><RouterLink to="/series">Séries</RouterLink></li>
       <li><RouterLink to="/releases">Lançamentos</RouterLink></li>
     </ul>

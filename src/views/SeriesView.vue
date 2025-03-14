@@ -11,6 +11,8 @@ const getSeries = async () => {
     const response = await api.get(endPoints.series, {
       params: {
         api_key: apiKey,
+        language: 'pt-BR',
+        page: 1,
       },
     })
 

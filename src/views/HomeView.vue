@@ -1,3 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import CarouselComponent from '@/components/CarouselComponent.vue'
+</script>
 
-<template></template>
+<template>
+  <CarouselComponent />
+</template>
