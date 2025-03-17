@@ -38,5 +38,6 @@ const emit = defineEmits(['prevPage', 'nextPage'])
 .button {
   cursor: pointer;
   padding: 1rem;
+  border-radius: 1rem;
 }
 </style>
