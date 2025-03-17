@@ -8,6 +8,7 @@ const endPoints = {
   series: '3/discover/tv',
   movies: '3/discover/movie',
   popular: '3/movie/popular',
+  topRated: '3/movie/top_rated',
 }
 
 const apiKey = '212e8883e663280ace84f6021868265c'

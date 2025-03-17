@@ -20,7 +20,6 @@ const truncatedTitle = computed(() => {
 <template>
   <div class="card" @mouseenter="showDetails = true" @mouseleave="showDetails = false">
     <div class="relative">
-      <!-- Imagem do filme -->
       <img
         class="w-full transition-opacity duration-300"
         :class="{ 'opacity-60': showDetails }"
@@ -28,7 +27,6 @@ const truncatedTitle = computed(() => {
         alt="Capa do filme"
       />
 
-      <!-- Gradiente escuro ao inspecionar -->
       <div
         class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent transition-opacity duration-300"
         :class="{ 'opacity-100': showDetails, 'opacity-0': !showDetails }"
@@ -40,7 +38,6 @@ const truncatedTitle = computed(() => {
         <StarRatingComponent :rating="vote_average" />
       </div>
 
-      <!-- Descrição aparece ao passar o mouse -->
       <div
         v-if="showDetails"
         class="absolute inset-0 flex items-center justify-center text-white px-4 text-sm text-center"
@@ -67,6 +64,7 @@ const truncatedTitle = computed(() => {
 
 img {
   min-height: 300px;
+  max-height: 600px;
   width: 100%;
   border-radius: 1rem;
   object-fit: cover;

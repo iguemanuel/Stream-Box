@@ -8,7 +8,7 @@
     <ul class="nav-links">
       <li><RouterLink to="/">Home</RouterLink></li>
       <li><RouterLink to="/series">Séries</RouterLink></li>
-      <li><RouterLink to="/releases">Lançamentos</RouterLink></li>
+      <li><RouterLink to="/releases">Filmes</RouterLink></li>
     </ul>
     <div class="search">
       <input type="text" placeholder="Buscar..." />
