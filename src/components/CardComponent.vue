@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import StarRatingComponent from './StarRatingComponent.vue'
-import { defineProps, computed, ref } from 'vue'
+import { computed, ref } from 'vue'
+import { useFavoriteStore } from '@/stores/favoriteStore'
+
+const store = useFavoriteStore()
 
 const props = defineProps<{
   id: number
@@ -10,11 +13,38 @@ const props = defineProps<{
   overview: string
 }>()
 
-const showDetails = ref(false) // Estado para mostrar a descrição
+const showDetails = ref(false)
 
+console.log('Props do Card:', props)
+
+const toggleFavorite = () => {
+  console.log('Clicado no favorito:', props.id)
+  if (!props.id) {
+    console.error('Erro: ID indefinido no CardComponent')
+    return
+  }
+
+  const isFav = store.isFavorite(props.id)
+  if (isFav) {
+    store.removeFavorite(props.id)
+  } else {
+    store.addFavorite({
+      id: props.id,
+      title: props.title,
+      poster_path: props.posterPath,
+      vote_average: props.vote_average,
+      overview: props.overview,
+    })
+  }
+}
+
+// Truncar título longo
 const truncatedTitle = computed(() => {
   return props.title.length > 20 ? props.title.substring(0, 20) + '...' : props.title
 })
+
+// Computar se o filme é favorito
+const isFavorite = computed(() => store.isFavorite(props.id))
 </script>
 
 <template>
@@ -31,6 +61,14 @@ const truncatedTitle = computed(() => {
         class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent transition-opacity duration-300"
         :class="{ 'opacity-100': showDetails, 'opacity-0': !showDetails }"
       ></div>
+
+      <!-- Ícone de Favorito -->
+      <button
+        @click="toggleFavorite"
+        class="absolute top-3 right-3 text-3xl transition-all duration-300 py-2 px-4 rounded-full text-black"
+      >
+        <i :class="isFavorite ? 'bx bx-bookmark' : 'bx bx-bookmark-alt'" />
+      </button>
 
       <!-- Título e rating -->
       <div class="absolute bottom-0 w-full p-4 text-white">
@@ -69,5 +107,21 @@ img {
   border-radius: 1rem;
   object-fit: cover;
   object-position: center;
+}
+
+button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10; /* Garante que fique acima de outros elementos */
+  cursor: pointer;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  transition: transform 0.2s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.1);
 }
 </style>

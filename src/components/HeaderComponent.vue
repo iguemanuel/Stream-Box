@@ -9,6 +9,7 @@
       <li><RouterLink to="/">Home</RouterLink></li>
       <li><RouterLink to="/series">Séries</RouterLink></li>
       <li><RouterLink to="/releases">Filmes</RouterLink></li>
+      <li><RouterLink to="/favorites">Favoritos</RouterLink></li>
     </ul>
     <div class="search">
       <input type="text" placeholder="Buscar..." />

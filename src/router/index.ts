@@ -1,3 +1,4 @@
+import FavoriesView from '@/views/FavoriesView.vue'
 import HomeView from '@/views/HomeView.vue'
 import ReleasesView from '@/views/ReleasesView.vue'
 import SeriesView from '@/views/SeriesView.vue'
@@ -18,6 +19,10 @@ const router = createRouter({
     {
       path: '/series',
       component: SeriesView,
+    },
+    {
+      path: '/favorites',
+      component: FavoriesView,
     },
   ],
 })

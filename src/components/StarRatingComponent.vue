@@ -1,33 +1,38 @@
 <script setup lang="ts">
-import { defineProps } from 'vue'
+import { computed } from 'vue'
 
+// Definição das props
 const props = defineProps<{
   rating: number
 }>()
 
-const numberStars = Math.round(props.rating / 2)
+// Cálculo da quantidade de estrelas cheias e vazias
+const numberStars = computed(() => Math.round(props.rating / 2))
 
-const fullStars: any[] = []
-const emptyStars: any[] = []
-
-for (let i = 0; i < 5; i++) {
-  if (i < numberStars) {
-    fullStars.push(i)
-  } else {
-    emptyStars.push(i)
-  }
-}
+const fullStars = computed(() => Array(numberStars.value).fill(0))
+const emptyStars = computed(() => Array(5 - numberStars.value).fill(0))
 </script>
+
 <template>
   <div>
-    <box-icon
-      v-for="i in fullStars"
-      :key="'full-' + i"
-      type="solid"
-      name="star"
-      color="gold"
-    ></box-icon>
+    <!-- Estrelas cheias -->
+    <i
+      v-for="(star, index) in fullStars"
+      :key="'full-' + index"
+      class="bx bxs-star text-yellow-400"
+    ></i>
 
-    <box-icon v-for="i in emptyStars" :key="'empty-' + i" name="star" color="gray"></box-icon>
+    <!-- Estrelas vazias -->
+    <i
+      v-for="(star, index) in emptyStars"
+      :key="'empty-' + index"
+      class="bx bx-star text-gray-300"
+    ></i>
   </div>
 </template>
+
+<style scoped>
+.bx {
+  font-size: 1.5rem;
+}
+</style>
