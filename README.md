@@ -1,33 +1,5 @@
 # stream-box
 
-This template should help get you started developing with Vue 3 in Vite.
+Recentemente, desenvolvi um projeto web em Vue.js com TailwindCSS que consome a API The Movie Database (TMDb). A aplicação permite explorar uma vasta coleção de filmes e séries, exibindo detalhes como sinopse, nota e elenco. Além disso, inclui um sistema de favoritos, onde os usuários podem salvar seus títulos preferidos.
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
+Embora ainda esteja em desenvolvimento, a base do projeto já está funcional, consumindo todos os dados de filmes e séries da API. Futuramente, pretendo adicionar novas funcionalidades para aprimorar a experiência do usuário.

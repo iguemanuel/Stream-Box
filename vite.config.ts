@@ -11,6 +11,7 @@ export default defineConfig({
   plugins: [vue(), vueDevTools(), tailwindcss()],
   server: {
     open: true,
+    port: 3000,
   },
   resolve: {
     alias: {
